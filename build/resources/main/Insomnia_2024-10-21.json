@@ -1,0 +1,127 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2025-10-05T23:40:00.000Z",
+  "__export_source": "insomnia.desktop.app:v2023.5.8",
+  "resources": [
+    {
+      "_id": "wrk_proyectoTres",
+      "_type": "workspace",
+      "name": "Proyecto Tres CRUD Productos-Categorias",
+      "scope": "collection"
+    },
+    {
+      "_id": "fld_categorias",
+      "_type": "request_group",
+      "parentId": "wrk_proyectoTres",
+      "name": "Categorias"
+    },
+    {
+      "_id": "fld_productos",
+      "_type": "request_group",
+      "parentId": "wrk_proyectoTres",
+      "name": "Productos"
+    },
+
+    {
+      "_id": "req_get_categorias",
+      "_type": "request",
+      "parentId": "fld_categorias",
+      "name": "Listar Categorias",
+      "method": "GET",
+      "url": "{{ base_url }}/categorias",
+      "authentication": { "type": "bearer", "token": "{{ jwt_token }}" }
+    },
+    {
+      "_id": "req_post_categoria",
+      "_type": "request",
+      "parentId": "fld_categorias",
+      "name": "Registrar Categoria",
+      "method": "POST",
+      "url": "{{ base_url }}/categorias",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"Electrónica\",\n  \"description\": \"Dispositivos y gadgets\"\n}"
+      },
+      "authentication": { "type": "bearer", "token": "{{ jwt_token }}" }
+    },
+    {
+      "_id": "req_put_categoria",
+      "_type": "request",
+      "parentId": "fld_categorias",
+      "name": "Actualizar Categoria",
+      "method": "PUT",
+      "url": "{{ base_url }}/categorias/1",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"Electrónica y Accesorios\",\n  \"description\": \"Actualizado\"\n}"
+      },
+      "authentication": { "type": "bearer", "token": "{{ jwt_token }}" }
+    },
+    {
+      "_id": "req_delete_categoria",
+      "_type": "request",
+      "parentId": "fld_categorias",
+      "name": "Eliminar Categoria",
+      "method": "DELETE",
+      "url": "{{ base_url }}/categorias/1",
+      "authentication": { "type": "bearer", "token": "{{ jwt_token }}" }
+    },
+
+    {
+      "_id": "req_get_productos",
+      "_type": "request",
+      "parentId": "fld_productos",
+      "name": "Listar Productos",
+      "method": "GET",
+      "url": "{{ base_url }}/productos",
+      "authentication": { "type": "bearer", "token": "{{ jwt_token }}" }
+    },
+    {
+      "_id": "req_post_producto",
+      "_type": "request",
+      "parentId": "fld_productos",
+      "name": "Registrar Producto en Categoria",
+      "method": "POST",
+      "url": "{{ base_url }}/productos/categoria/1",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"Laptop Dell\",\n  \"description\": \"Laptop 16GB RAM\",\n  \"price\": 1200.50,\n  \"stockQuantity\": 10\n}"
+      },
+      "authentication": { "type": "bearer", "token": "{{ jwt_token }}" }
+    },
+    {
+      "_id": "req_put_producto",
+      "_type": "request",
+      "parentId": "fld_productos",
+      "name": "Actualizar Producto",
+      "method": "PUT",
+      "url": "{{ base_url }}/productos/1",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"Laptop Dell XPS\",\n  \"description\": \"Actualizado\",\n  \"price\": 1500.00,\n  \"stockQuantity\": 8\n}"
+      },
+      "authentication": { "type": "bearer", "token": "{{ jwt_token }}" }
+    },
+    {
+      "_id": "req_delete_producto",
+      "_type": "request",
+      "parentId": "fld_productos",
+      "name": "Eliminar Producto",
+      "method": "DELETE",
+      "url": "{{ base_url }}/productos/1",
+      "authentication": { "type": "bearer", "token": "{{ jwt_token }}" }
+    },
+
+    {
+      "_id": "env_proyectoTres",
+      "_type": "environment",
+      "parentId": "wrk_proyectoTres",
+      "name": "Base Environment",
+      "data": {
+        "base_url": "http://localhost:8080",
+        "jwt_token": "AQUI_VA_TU_TOKEN"
+      }
+    }
+  ]
+}
