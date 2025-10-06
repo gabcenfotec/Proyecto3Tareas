@@ -1,0 +1,270 @@
+type: collection.insomnia.rest/5.0
+name: API Productos & Categorías
+meta:
+  id: wrk_441ab874347247ab99053a855b969838
+  created: 1759727961016
+  modified: 1759727961016
+  description: ""
+collection:
+  - url: "{{ base_url }}/auth/login"
+    name: Login
+    meta:
+      id: req_7cbed698470a488185bc1e08443ab611
+      created: 0
+      modified: 1759727964665
+      isPrivate: false
+      description: ""
+      sortKey: -1759727961019
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "email": "super.admin@gmail.com",
+          "password": "test123"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ base_url }}/productos?page=1&size=10"
+    name: Listar Productos
+    meta:
+      id: req_e7da85cb895d4118b35cd600e4c44bba
+      created: 1759727961019
+      modified: 1759727968699
+      isPrivate: false
+      description: ""
+      sortKey: -1759727961019
+    method: GET
+    body:
+      mimeType: application/json
+      text: ""
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: Authorization
+        value: Bearer {{token}}
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ base_url }}/productos/categoria/1"
+    name: Registrar Producto
+    meta:
+      id: req_57858a6858ec4ef59ad686363342fed8
+      created: 1759727961020
+      modified: 1759727970929
+      isPrivate: false
+      description: ""
+      sortKey: -1759727961020
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": "Laptop Gaming",
+          "description": "Laptop con RTX 4060",
+          "price": 1500.99,
+          "stockQuantity": 5
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: Authorization
+        value: Bearer {{token}}
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ base_url }}/productos/1"
+    name: Actualizar Producto
+    meta:
+      id: req_734854ccb31048ce8b9c24ef89384e0a
+      created: 1759727961021
+      modified: 1759727974501
+      isPrivate: false
+      description: ""
+      sortKey: -1759727961021
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": "Laptop Gaming Pro",
+          "description": "Laptop actualizada con RTX 4080",
+          "price": 2500.99,
+          "stockQuantity": 10
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: Authorization
+        value: Bearer {{token}}
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ base_url }}/productos/1"
+    name: Borrar Producto
+    meta:
+      id: req_77a0e77ed44944369a51aaff0eee15b3
+      created: 1759727961021
+      modified: 1759727976045
+      isPrivate: false
+      description: ""
+      sortKey: -1759727961021
+    method: DELETE
+    headers:
+      - name: Authorization
+        value: Bearer {{token}}
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ base_url }}/categories?page=1&size=10"
+    name: Listar Categorías
+    meta:
+      id: req_c50c9bc6827c4716bda41a3e41a5248c
+      created: 1759727961022
+      modified: 1759727961022
+      isPrivate: false
+      description: ""
+      sortKey: -1759727961022
+    method: GET
+    body:
+      mimeType: application/json
+      text: ""
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: Authorization
+        value: Bearer {{token}}
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ base_url }}/categories"
+    name: Registrar Categoría
+    meta:
+      id: req_f628e539588c406595d21e05410df1c5
+      created: 1759727961022
+      modified: 1759727961022
+      isPrivate: false
+      description: ""
+      sortKey: -1759727961022
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": "Electrónica",
+          "description": "Dispositivos electrónicos"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: Authorization
+        value: Bearer {{token}}
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ base_url }}/categories/1"
+    name: Borrar Categoría
+    meta:
+      id: req_7a321030a4244f0fb042545da7b53770
+      created: 1759727961023
+      modified: 1759727961023
+      isPrivate: false
+      description: ""
+      sortKey: -1759727961023
+    method: DELETE
+    headers:
+      - name: Authorization
+        value: Bearer {{token}}
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ base_url }}/categories/1"
+    name: Actualizar Categoría
+    meta:
+      id: req_a3630402cff647409b044f7ae4d323a7
+      created: 1759727961023
+      modified: 1759727961023
+      isPrivate: false
+      description: ""
+      sortKey: -1759727961023
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": "Electrónica Avanzada",
+          "description": "Todo tipo de dispositivos electrónicos actualizados"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: Authorization
+        value: Bearer {{token}}
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_27735db54c61ff8198be8c7e927dd390b8c65bdf
+    created: 1759727961025
+    modified: 1759727961025
+environments:
+  name: Base Environment
+  meta:
+    id: env_6ed12f22750641808b54ffdd0c048ac7
+    created: 0
+    modified: 0
+    isPrivate: false
+  data:
+    base_url: http://localhost:8080
+    token: ""
